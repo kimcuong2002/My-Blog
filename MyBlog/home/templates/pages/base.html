@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel='shortcut icon' href='../../static/images/cuongpro.png' />
     <link rel="stylesheet" href="base.css">
     <link
       rel="stylesheet"
@@ -50,6 +51,28 @@
         border: none;
         color: white;
       }
+      @media (max-width: 1024px) {
+        .the-beautiful-time-title{
+          display: none;
+        }
+        .footer-container{
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        .footer-box{
+          width: 70%;
+        }
+        .last-footer-container{
+          flex-direction: column;
+        }
+        .design-by-me{
+          display: inline-block;
+          width: 90%;
+          text-align: center;
+          margin-bottom: 15px;
+        }
+      }
       {% block style %}{% endblock %}
     </style>
   </head>
@@ -60,20 +83,20 @@
             <a class="nav-link active" aria-current="page" href="#" style="color:black; font-size: 25px; font-weight:bold">MY PERSONAL BLOG</a>
           </li> 
           <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#" style="color:gray; font-size:17px; margin-right: 100px">THE BEAUTIFUL TIME OF YOUNG SPRING</a>
+              <a class="nav-link active the-beautiful-time-title" aria-current="page" href="#" style="color:gray; font-size:17px; margin-right: 100px">THE BEAUTIFUL TIME OF YOUNG SPRING</a>
           </li>
           <ul class="nav justify-content-center display-flex" style="align-items: center;">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#" style="color:black;font-size: 20px">HOME</a>
+                <a class="nav-link active" aria-current="page" href="/" style="color:black;font-size: 20px">HOME</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" style="color:black;font-size: 20px">ABOUT ME</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" style="color:black; font-size: 20px">PAGES</a>
+                <a class="nav-link" href="contact/" style="color:black; font-size: 20px">PAGES</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled" style="color:black; font-size: 20px" href="/contact">CONTACT</a>
+                <a class="nav-link" href="contact/" style="color:black; font-size: 20px; cursor: pointer" >CONTACT</a>
               </li>
               <link>
               <a href="https://www.facebook.com/profile.php?id=100031976826420">
@@ -127,7 +150,7 @@
       </div>
     </div>
     <div class="last-footer-container">
-      <div class="design-by-me">
+      <div class="design-by-me">  
         <a>Designed by</a>
         <a href="https://github.com/kimcuong2002" style="text-decoration: none;">Nguyen Hoang Kim Cuong</a>
       </div>

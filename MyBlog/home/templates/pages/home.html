@@ -1,4 +1,5 @@
-{% extends "pages/base.html" %} {% block title %} Home {% endblock %} {% block content %} {% block style %}
+{% extends "pages/base.html" %} {% block title %} Home {% endblock %} {% block content %} 
+{% block style %}
 <style>
   .home-content-container {
     background: #fffafa;
@@ -71,6 +72,24 @@
     width: 20%;
     
   }
+  @media (max-width: 778px){
+    .slide-bar__image{
+    }
+    .home-list-post{
+      display: none;
+    }
+    .a{
+      width: 90%;
+    }
+    .post-preview {
+      width: 100%;
+    }
+  }
+  @media (max-width: 1024px){
+    .a{
+      width: 90%;
+    }
+  }
 </style>
 {% endblock %}
 <div id="carouselExampleDark" class="carousel carousel-dark slide">
@@ -100,7 +119,7 @@
     <div class="carousel-item active" data-bs-interval="10000">
       <img
         src="../../static/images/slide1.png"
-        class="d-block w-100"
+        class="d-block w-100 slide-bar__image"
         alt="haizz"
         style="height: 80vh;object-fit:cover"
       />
@@ -162,11 +181,11 @@
         <div class="title-post-preview">
           <p class="date-post-preview">{{post.date|date:"d-m-Y"}}</p>
           <p class="name-post-preview">{{post.title}}</p>
-          <p class="typeof-post-preview">Kim Cuong</p>
+          <p class="typeof-post-preview">{{post.author}}</p>
         </div>
         <div class="image-post-preview">
           <img src="{{post.image.url}}" alt="" class="image-preview" />
-          <img src="../../static/images/slide1.png" alt="" class="avatar-box-preview">
+          <img src="{{post.avatar}}" alt="" class="avatar-box-preview">
         </div>
         <div>
           <p style="padding: 0 10px; color: gray">{{post.content}}</p>

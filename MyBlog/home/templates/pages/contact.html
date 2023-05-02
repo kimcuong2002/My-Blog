@@ -1,1 +1,72 @@
-{% extends "pages/base.html" %}{% block title %}Contact{% endblock %} {% block content %} {% endblock %}
+{% extends "pages/base.html" %}{% block title %}Contact{% endblock %}
+{% block style %}
+<style>
+  .contact-containerr{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .contact-box{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    padding: 100px 0;
+  }
+  .box__contact{
+    width: 60%;
+    background-color: white;
+    border: 3px dotted gray;
+    padding: 40px;
+    margin-right: 40px;
+  }
+  .list-contact-content{
+    width: 40%;
+  }
+  .my-contact{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 3px dotted gray;
+    padding: 40px;
+  }
+  .my-contact p{
+    font-weight: bold;
+  }
+  .my-contact span{ 
+    font-weight: 300;
+  }
+</style>
+{% endblock %}
+{% block content %}
+    <div class="contact-containerr" style="display: flex; justify-content: center; background: #fffafa;">
+        <div class="contact-box">
+            <div class="box__contact">
+                {% for contact in Contact %}
+                <div class="contact">
+                    <h3>Contact</h3>
+                    <p>{{contact.content}}</p>
+                </div>
+                {% endfor %}
+                <div class="contact-me!">
+                    <h3>Contact me!</h3>
+                    <p>Error: Contact form not found.</p>
+                </div>
+            </div>
+            <div class="list-contact-content">
+              <div class="my-contact">
+                <h3 style="text-align: center;">Say Hello!</h3>
+                <hr style="color:red;">
+                {% for contact in Contact %}
+                <p>Street name - <span>{{contact.address}}</span></p>
+                <p>Phone - <span>{{contact.phone}}</span></p>
+                <p>Email - <span>nguyenhoangkimcuong02@gmail.com
+                </span></p>
+                {% endfor %}
+              </div>
+              <div class="socical-media">
+              </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
