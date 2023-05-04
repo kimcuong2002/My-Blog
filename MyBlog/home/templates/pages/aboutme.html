@@ -1,0 +1,133 @@
+{% extends "pages/base.html" %}{% block title %}About Me{% endblock %} {% block style %}
+<style>
+  .about_me-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .about_me-together-box {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    padding: 100px 0;
+  }
+  .list-mini-content {
+    width: 40%;
+    margin-right: 40px;
+  }
+  .main-content {
+    width: 60%;
+  }
+  .lastest-post {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border: 3px dotted gray;
+    background-color: white;
+    padding: 40px;
+    margin-bottom: 40px;
+  }
+  .popular-categories {
+    border: 3px dotted gray;
+    background-color: white;
+    padding: 40px;
+  }
+  .about-me-box {
+    background-color: white;
+    border: 3px dotted gray;
+    padding: 40px;
+  }
+</style>
+{% endblock %} {% block content %}
+<div
+  class="about_me-container"
+  style="display: flex; justify-content: center; background: #fffafa"
+>
+  <div class="about_me-together-box">
+    <div class="list-mini-content">
+      <div class="lastest-post">
+        <h4>Lastest Posts</h4>
+        <hr style="color: red; width: 30%" />
+        <div class="lastest-post1" style="margin-bottom: 40px">
+          <img
+            src="../../static/images/slide2.jpg"
+            alt=""
+            style="width: 100%; padding-bottom: 20px"
+          />
+          <div>
+            <h4 style="color: rgb(196, 89, 81); text-align: left">
+              Hello world!
+            </h4>
+            <p style="color: gray; text-align: left">
+              Bearing cattle void spirit third whose fill let shall our also
+              signs. Fly subdue of herb won't. Lights one Man whose green two.
+              Hath,...
+            </p>
+          </div>
+        </div>
+        <div class="lastest-post1">
+          <img
+            src="../../static/images/phuyen.jpeg"
+            alt=""
+            style="width: 100%; padding-bottom: 20px"
+          />
+          <div>
+            <h4 style="color: rgb(196, 89, 81); text-align: left">
+              Hello Phu yen!
+            </h4>
+            <p style="color: gray; text-align: left">
+              Bearing cattle void spirit third whose fill let shall our also
+              signs. Fly subdue of herb won't. Lights one Man whose green two.
+              Hath,...
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="popular-categories">
+        <h4 style="text-align: center">Popular Categories</h4>
+        <hr style="color: red" />
+        <hr style="border: 2px dotted gray" />
+        <a href="" style="color: gray; text-decoration: none">Fashion</a>
+        <hr style="border: 2px dotted gray" />
+        <a href="" style="color: gray; text-decoration: none">LifeStyle</a>
+        <hr style="border: 2px dotted gray" />
+        <a href="" style="color: gray; text-decoration: none">Other</a>
+        <hr style="border: 2px dotted gray" />
+        <a href="" style="color: gray; text-decoration: none">Widget</a>
+      </div>
+      <div class="social-widget"></div>
+    </div>
+    <div class="main-content">
+      <div class="about-me-box">
+        <h2 style="margin-bottom: 25px">About me!</h2>
+        <div style="display: flex; gap: 10px">
+          <p style="width: 50%; text-align: justify ">
+            Life is like a rollercoaster, full of ups and downs. It's important
+            to cherish the good moments and learn from the bad ones. Embrace
+            challenges and take risks, for they can lead to great rewards. Most
+            importantly, be kind to yourself and others, and appreciate the
+            beauty in every moment.
+          </p>
+          <img
+            src="../../static/images/cuongpro.jpg"
+            alt=""
+            style="width: 50%; object-fit: cover"
+          />
+        </div>
+        <p>
+          Life is a journey, not a destination. Enjoy the ride and appreciate
+          every moment, even the bumps and detours along the way, because they
+          all contribute to the person you are becoming. Cherish the people you
+          meet, the experiences you have, and the lessons you learn, as they are
+          all part of the tapestry of your life. Embrace the beauty of
+          imperfection and the uncertainty of the future, knowing that every
+          step you take is a step forward. Life is a precious gift, so make the
+          most of it while you can.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -9,3 +9,10 @@ def index(request):
 def contact(request):
         Data = {'Contact': Contact.objects.all()}
         return render(request, "pages/contact.html", Data)
+def aboutme(request):
+        return render(request, "pages/aboutme.html")
+def pages(request):
+        return render(request, "pages/pages.html")
+def post(request, id):
+        post = Post.objects.get(id = id)
+        return render(request, 'pages/post.html', {'post': post})
