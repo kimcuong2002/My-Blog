@@ -39,6 +39,18 @@
     border: 3px dotted gray;
     padding: 40px;
   }
+  @media (max-width: 1024px) {
+    .about_me-together-box{
+      flex-direction: column;
+    }
+    .list-mini-content{
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    .main-content{
+      width: 100%;
+    }
+  }
 </style>
 {% endblock %} {% block content %}
 <div
@@ -126,6 +138,9 @@
           step you take is a step forward. Life is a precious gift, so make the
           most of it while you can.
         </p>
+      </div>
+      <div class="aa">
+        <audio src="../../static/audio/tbvc.mp3" style="width: 100%%; height: 30px"/>
       </div>
     </div>
   </div>

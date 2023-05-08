@@ -16,3 +16,5 @@ def pages(request):
 def post(request, id):
         post = Post.objects.get(id = id)
         return render(request, 'pages/post.html', {'post': post})
+def error(request, exception):
+        return render(request, 'pages/error.html', {})

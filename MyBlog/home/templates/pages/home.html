@@ -1,9 +1,9 @@
-{% extends "pages/base.html" %} {% block title %} Home {% endblock %} {% block content %} 
-{% block style %}
+{% extends "pages/base.html" %} {% block title %} Home {% endblock %} {% block content %} {% block style %}
 <style>
   .home-content-container {
     background: #fffafa;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -28,33 +28,34 @@
   .image-preview {
     width: 100%;
   }
-  .date-post-preview{
+  .date-post-preview {
     font-size: 13;
     margin: 0 0 13px;
-    color: #7B7B7B;
+    color: #7b7b7b;
     text-transform: uppercase;
   }
-  .name-post-preview{
+  .name-post-preview {
     font-size: 25px;
     color: #222222;
     text-transform: uppercase;
     font-weight: bold;
   }
-  .image-post-preview{
+  .image-post-preview {
     position: relative;
     margin-bottom: 40px;
   }
-  .avatar-box-preview{
+  .avatar-box-preview {
     height: 60px;
     width: 60px;
     border-radius: 50%;
-    position: absolute; 
+    position: absolute;
     top: 100%;
     left: 50%;
     transform: translate(-50%, -50%);
     border: 4px solid white;
+    object-fit: cover;
   }
-  .mini-post{
+  .mini-post {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -70,23 +71,22 @@
   .mini-post hr {
     color: red;
     width: 20%;
-    
   }
-  @media (max-width: 778px){
-    .slide-bar__image{
+  @media (max-width: 778px) {
+    .slide-bar__image {
     }
-    .home-list-post{
+    .home-list-post {
       display: none;
     }
-    .a{
+    .a {
       width: 90%;
     }
     .post-preview {
       width: 100%;
     }
   }
-  @media (max-width: 1024px){
-    .a{
+  @media (max-width: 1024px) {
+    .a {
       width: 90%;
     }
   }
@@ -121,7 +121,7 @@
         src="../../static/images/slide1.png"
         class="d-block w-100 slide-bar__image"
         alt="haizz"
-        style="height: 80vh;object-fit:cover"
+        style="height: 80vh; object-fit: cover"
       />
       <div class="carousel-caption d-none d-md-block">
         <h5>Cương suy tư</h5>
@@ -145,7 +145,7 @@
         src="../../static/images/slide1.png"
         class="d-block w-100"
         alt="..."
-        style="height: 80vh; object-fit:cover"
+        style="height: 80vh; object-fit: cover"
       />
       <div class="carousel-caption d-none d-md-block">
         <h5>Third slide label</h5>
@@ -176,8 +176,19 @@
   <div class="a">
     <div class="post-preview">
       {% for post in Posts %}
-      <div style="background: white; display: flex; justify-content:cneter; align-items: center; flex-direction: column; padding: 55px 0 44px; text-align:center; margin-bottom: 40px;border: 3px dotted gray;
-"> 
+      <div
+        style="
+          background: white;
+          display: flex;
+          justify-content: cneter;
+          align-items: center;
+          flex-direction: column;
+          padding: 55px 0 44px;
+          text-align: center;
+          margin-bottom: 40px;
+          border: 3px dotted gray;
+        "
+      >
         <div class="title-post-preview">
           <p class="date-post-preview">{{post.date|date:"d-m-Y"}}</p>
           <p class="name-post-preview">{{post.title}}</p>
@@ -185,25 +196,118 @@
         </div>
         <div class="image-post-preview">
           <img src="{{post.image.url}}" alt="" class="image-preview" />
-          <img src="{{post.avatar}}" alt="" class="avatar-box-preview">
+          <img src="{{post.avatar.url}}" alt="" class="avatar-box-preview" />
         </div>
         <div>
           <p style="padding: 0 10px; color: gray">{{post.content}}</p>
-          <button><a href="/{{post.id}}">Read More</a></button>
+          <button type="button" class="btn btn-outline-info">
+            <a href="/{{post.id}}" style="text-decoration: none">Read More</a>
+          </button>
         </div>
       </div>
       {% endfor %}
+      <div style="
+          background-color: white;
+          padding: 40px;
+          border: 3px dotted gray;
+          margin-bottom: 40px;
+        ">
+        hello
+      </div>
     </div>
     <div class="home-list-post">
       {% for post in Posts %}
-        <div class="mini-post">
-          <img src="../../static/images/cuongpro.jpg" alt="" style="width: 115px; height:115px; border-radius: 50%">
-          <p>Hello my name is Cuong! </p>
-          <hr>
-          <p>My name is Kim Cuong, volutpat leo nec libero feugiat, vel malesuada neque commodo. Curabitur sem nibh, auctor a viverra ut, dictum ullamcorper libero.</p>
-        </div>
+      <div class="mini-post">
+        <img
+          src="{{post.avatar.url}}"
+          alt=""
+          style="
+            width: 115px;
+            height: 115px;
+            border-radius: 50%;
+            object-fit: cover;
+          "
+        />
+        <p>{{post.title}}</p>
+        <hr />
+        <p style="overflow: hidden; text-overflow: ellipsis; height: 70px">
+          {{post.content}}
+        </p>
+      </div>
       {% endfor %}
+      <div
+        style="
+          background-color: white;
+          padding: 40px;
+          border: 3px dotted gray;
+          margin-bottom: 40px;
+        "
+      >
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping">@</span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Username"
+            aria-label="Username"
+            aria-describedby="addon-wrapping"
+          />
+        </div>
+      </div>
+      <div
+        style="
+          background-color: white;
+          padding: 40px;
+          border: 3px dotted gray;
+          margin-bottom: 40px;
+        "
+        class="flex center"
+      >
+      <h3>Tag Name !</h3>
+      <hr>
+        <div class="container text-center">
+          <div class="row" style="margin-bottom: 20px;">
+            <div class="col">
+              <button type="button" class="btn btn-info" style="width: 100%">
+                Tag
+              </button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-info" style="width: 100%">
+                Tag 1
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <button type="button" class="btn btn-info" style="width: 100%">
+                Tag 2
+              </button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-info" style="width: 100%">
+                Tag 3
+              </button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-info" style="width: 100%">
+                Tag4
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">...</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </nav>
+
 </div>
 {% endblock %}

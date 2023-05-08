@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
      <link rel='shortcut icon' href='../../static/images/cuongpro.png' />
-    <link rel="stylesheet" href="base.css">
     <link
       rel="stylesheet"
       href="{% static 'css/bootstrap.min.css' %}"
@@ -14,7 +13,6 @@
     />
     <title>{% block title %}{% endblock %}</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-    
     <style>
       .footer-container{
         padding-top: 30px;    
@@ -80,7 +78,7 @@
     <div class="container-fluid">
         <ul class="nav justify-content-center display-flex" style="height:100px; align-items: center;color:black">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#" style="color:black; font-size: 25px; font-weight:bold">MY PERSONAL BLOG</a>
+            <a class="nav-link active" aria-current="page" href="/" style="background: -webkit-linear-gradient(#a6c0fe, #f68084);-webkit-background-clip: text;-webkit-text-fill-color: transparent; font-size: 25px; font-weight:bold">MY PERSONAL BLOG</a>
           </li> 
           <li class="nav-item">
               <a class="nav-link active the-beautiful-time-title" aria-current="page" href="#" style="color:gray; font-size:17px; margin-right: 100px">THE BEAUTIFUL TIME OF YOUNG SPRING</a>
@@ -93,7 +91,7 @@
                 <a class="nav-link" href="/aboutme" style="color:black;font-size: 20px">ABOUT ME</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/pages" style="color:black; font-size: 20px">PAGES</a>
+                <a class="nav-link" href="/pages" style="color:black; font-size: 20px">MEMORIES</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/contact" style="color:black; font-size: 20px; cursor: pointer" >CONTACT</a>
@@ -155,11 +153,16 @@
         <a href="https://github.com/kimcuong2002" style="text-decoration: none;">Nguyen Hoang Kim Cuong</a>
       </div>
       <div class="last-footer-button">
-        <button>About me</button>
-        <button>Life Style</button>
-        <button>Fashion</button>
-        <button>Contact</button>
-        <button>Project</button>
+        <button type="button" class="btn btn-outline-info"> <a href="/aboutme" style="color:white; text-decoration: none" onMouseOver="this.style.color='black'"
+   onMouseOut="this.style.color='white'">About me</a></button>
+        <button type="button" class="btn btn-outline-info"  style="color:white; text-decoration: none" onMouseOver="this.style.color='black'"
+   onMouseOut="this.style.color='white'">Life Style</button>
+        <button type="button" class="btn btn-outline-info"  style="color:white; text-decoration: none" onMouseOver="this.style.color='black'"
+   onMouseOut="this.style.color='white'">Fashion</button>
+        <button type="button" class="btn btn-outline-info"> <a  href="/contact" style="color:white; text-decoration: none" onMouseOver="this.style.color='black'"
+   onMouseOut="this.style.color='white'">Contact</a></button>
+        <button type="button" class="btn btn-outline-info"  style="color:white; text-decoration: none" onMouseOver="this.style.color='black'"
+   onMouseOut="this.style.color='white'">Project</button>
       </div> 
     </div>
   </body>
