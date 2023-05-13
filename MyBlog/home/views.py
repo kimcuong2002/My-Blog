@@ -1,20 +1,38 @@
 from django.shortcuts import render
 from .models import Post
 from .models import Contact
+from .models import *
 
 # Create your views here.
 def index(request):
-        Data = {'Posts': Post.objects.all().order_by("-date")}
-        return render(request, "pages/home.html", Data)
+    Data = {"Posts": Post.objects.all().order_by("-date")}
+    return render(request, "pages/home.html", Data)
+
+
 def contact(request):
-        Data = {'Contact': Contact.objects.all()}
-        return render(request, "pages/contact.html", Data)
+    Data = {"Contact": Contact.objects.all()}
+    return render(request, "pages/contact.html", Data)
+
+
 def aboutme(request):
-        return render(request, "pages/aboutme.html")
+    return render(request, "pages/aboutme.html")
+
+
 def pages(request):
-        return render(request, "pages/pages.html")
+    return render(request, "pages/pages.html")
+
+
 def post(request, id):
-        post = Post.objects.get(id = id)
-        return render(request, 'pages/post.html', {'post': post})
-def error(request, exception):
-        return render(request, 'pages/error.html', {})
+    post = Post.objects.get(id=id)
+    return render(request, "pages/post.html",{"post": post})
+
+
+def error_404(request, exception):
+    context = {}
+    return render(request, "pages/error.html", context)
+
+def search(request):
+    if request.method == "POST":
+        searched = request.POST["searched"]
+        keys = Post.objects.filter(title__contains=searched)
+    return render(request, "pages/search.html", {"searched": searched, "keys": keys})

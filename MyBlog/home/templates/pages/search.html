@@ -1,0 +1,314 @@
+{% extends "pages/base.html" %} {% block title %} Home {% endblock %} {% block content %} {% block style %}
+<style>
+  .home-content-container {
+    background: #fffafa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 100px 0;
+  }
+  .a {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+  }
+  .post-preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+    margin-bottom: 30px;
+    margin-right: 40px;
+  }
+  .home-list-post {
+    width: 40%;
+  }
+  .image-preview {
+    width: 100%;
+  }
+  .date-post-preview {
+    font-size: 13;
+    margin: 0 0 13px;
+    color: #7b7b7b;
+    text-transform: uppercase;
+  }
+  .name-post-preview {
+    font-size: 25px;
+    color: #222222;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .image-post-preview {
+    position: relative;
+    margin-bottom: 40px;
+  }
+  .avatar-box-preview {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 4px solid white;
+    object-fit: cover;
+  }
+  .mini-post {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px dotted gray;
+    margin-bottom: 40px;
+    padding: 33px;
+    background-color: white;
+  }
+  .mini-post img {
+    margin-bottom: 20px;
+  }
+  .mini-post hr {
+    color: red;
+    width: 20%;
+  }
+  @media (max-width: 778px) {
+    .slide-bar__image {
+    }
+    .home-list-post {
+      display: none;
+    }
+    .a {
+      width: 90%;
+    }
+    .post-preview {
+      width: 100%;
+    }
+  }
+  @media (max-width: 1024px) {
+    .a {
+      width: 90%;
+    }
+  }
+</style>
+{% endblock %}
+<div id="carouselExampleDark" class="carousel carousel-dark slide">
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#carouselExampleDark"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleDark"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleDark"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img
+        src="../../static/images/slide1.png"
+        class="d-block w-100 slide-bar__image"
+        alt="haizz"
+        style="height: 80vh; object-fit: cover"
+      />
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Cương suy tư</h5>
+        <p>Có những ngày mệt mỏi đến lạ thường.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img
+        src="../../static/images/slide2.jpg"
+        class="d-block w-100"
+        alt="..."
+        style="height: 80vh; object-fit: cover"
+      />
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Cuong and Cuong friends</h5>
+        <p>Bon nay tre trau vl</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img
+        src="../../static/images/slide1.png"
+        class="d-block w-100"
+        alt="..."
+        style="height: 80vh; object-fit: cover"
+      />
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleDark"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleDark"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="home-content-container">
+  <div class="a">
+    <div class="post-preview">
+      {% for post in keys %}
+      <div
+        style="
+          background: white;
+          display: flex;
+          justify-content: cneter;
+          align-items: center;
+          flex-direction: column;
+          padding: 55px 0 44px;
+          text-align: center;
+          margin-bottom: 40px;
+          border: 3px dotted gray;
+        "
+      >
+        <div class="title-post-preview">
+          <p class="date-post-preview">{{post.date|date:"d-m-Y"}}</p>
+          <p class="name-post-preview">{{post.title}}</p>
+          <p class="typeof-post-preview">{{post.author}}</p>
+        </div>
+        <div class="image-post-preview">
+          <img src="{{post.image.url}}" alt="" class="image-preview" />
+          <img src="{{post.avatar.url}}" alt="" class="avatar-box-preview" />
+        </div>
+        <div>
+          <p style="padding: 0 10px; color: gray">{{post.content}}</p>
+          <button type="button" class="btn btn-outline-info">
+            <a href="/{{post.id}}" style="text-decoration: none">Read More</a>
+          </button>
+        </div>
+      </div>
+      {% endfor %}
+      <div
+        style="
+          background-color: white;
+          padding: 40px;
+          border: 3px dotted gray;
+          margin-bottom: 40px;
+        "
+      >
+        hello
+      </div>
+    </div>
+    <div class="home-list-post">
+      {% for post in Posts %}
+      <div class="mini-post">
+        <img
+          src="{{post.avatar.url}}"
+          alt=""
+          style="
+            width: 115px;
+            height: 115px;
+            border-radius: 50%;
+            object-fit: cover;
+          "
+        />
+        <p>{{post.title}}</p>
+        <hr />
+        <p style="overflow: hidden; text-overflow: ellipsis; height: 70px">
+          {{post.content}}
+        </p>
+      </div>
+      {% endfor %}
+      <div
+        style="
+          background-color: white;
+          padding: 40px;
+          border: 3px dotted gray;
+          margin-bottom: 40px;
+        "
+      >
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping">@</span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Username"
+            aria-label="Username"
+            aria-describedby="addon-wrapping"
+          />
+        </div>
+      </div>
+      <div
+        style="
+          background-color: white;
+          padding: 40px;
+          border: 3px dotted gray;
+          margin-bottom: 40px;
+        "
+        class="flex center"
+      >
+        <h3>Tag Name !</h3>
+        <hr />
+        <div class="container text-center">
+          <div class="row" style="margin-bottom: 20px">
+            <div class="col">
+              <button type="button" class="btn btn-info" style="width: 100%">
+                Tag
+              </button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-info" style="width: 100%">
+                Tag 1
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <button type="button" class="btn btn-info" style="width: 100%">
+                Tag 2
+              </button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-info" style="width: 100%">
+                Tag 3
+              </button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-info" style="width: 100%">
+                Tag4
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">...</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </nav>
+</div>
+{% endblock %}
