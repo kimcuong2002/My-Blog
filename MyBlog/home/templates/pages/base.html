@@ -112,6 +112,14 @@
             </div>
             </div>
           </ul>
+             <div class="col-sm-1">
+                {% if user.username %}
+                    <p>Xin chào {{user.username}}</p>
+                    <p><a href="{% url 'logout' %}">Đăng xuất</a></p>
+                {% else %}
+                    <p><a href="{% url 'register' %}">Đăng ký</a>|<a href="{% url 'login' %}">Đăng nhập</a></p>
+                {% endif %}
+            </div>
     </div>
     {% block content %}
     {% endblock %}

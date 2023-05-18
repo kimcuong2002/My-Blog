@@ -2,9 +2,10 @@ from django.shortcuts import render
 from .models import Post
 from .models import Contact
 from .models import *
-from .form import Validate
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate
+from .form import RegistrationForm
+from django.http import HttpResponseRedirect
 
 
 # Create your views here.
@@ -43,24 +44,12 @@ def search(request):
     return render(request, "pages/search.html", {"searched": searched, "keys": keys})
 
 
-def login(request):
-    if request.method == "POST":
-        username = request.GET["username"]
-        password = request.GET["password"]
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            # login(request, user)
-            return render("/")
-        else:
-            return render(request, "login.html")
-    return render(request, "pages/login.html")
-
 
 def register(request):
-    form = Validate()
+    form = RegistrationForm()
     if request.method == "POST":
-        form = Validate(request.POST)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-        return HttpResponseRedirect("/")
+            return HttpResponseRedirect("/")
     return render(request, "pages/register.html", {"form": form})

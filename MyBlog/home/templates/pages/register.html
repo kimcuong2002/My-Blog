@@ -1,54 +1,14 @@
-{% extends "pages/base.html" %} {% block tittle %}Register{% endblock%} {% block content %}
-<center>
-  <form
-    action="."
-    method="POST"
-    style="
-      border: 3px dotted gray;
-      width: 50%;
-      padding: 40px;
-      border-radius: 30px;
-    "
-  >
-    <p>Register Now</p>
-    {% csrf_token %} {{ form.as_p }}
-    <!-- <div>
-      <label for="">User name</label>
-      <input
-        type="text"
-        placeholder="Please enter your name"
-        name="usename"
-        id="usename"
-      />
-    </div>
-    <div>
-      <label for="">Email</label>
-      <input
-        type="email"
-        placeholder="Please enter your email"
-        name="email"
-        id="email"
-      />
-    </div>
-    <div>
-      <label for="">Password</label>
-      <input
-        type="password"
-        placeholder="Please enter your Password"
-        name="password"
-        id="password"
-      />
-    </div>
-    <div>
-      <label for="">Confirm Password</label>
-      <input
-        type="password"
-        placeholder="Please confirm your password"
-        name="confirmpassword"
-        id="confirmpassword"
-      />
-    </div> -->
-    <input type="submit" value="register" placeholder="hello" />
-  </form>
-</center>
+{% extends "pages/base.html" %}{% block title %}Register{% endblock %} {% block style %} 
+  
+{% endblock %} 
+
+{% block content %}
+    <center>
+      <form action="." method="POST">
+        {% csrf_token %} {{form.as_p}}
+        <input type="submit" value="Đăng ký" />
+      </form>
+    </center>
 {% endblock %}
+
+
